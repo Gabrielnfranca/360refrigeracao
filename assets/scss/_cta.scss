@@ -1,0 +1,333 @@
+/* 04. Cta CSS */
+.cta-area {
+    position: relative;
+    z-index: 4;
+}
+.cta--wrapper {
+    display: flex;
+    flex-basis: 50%;
+    border-radius: 10px;
+    margin-top: -80px;
+    position: relative;
+    z-index: 4;
+    overflow: hidden;
+    box-shadow: 0px 15px 20px 0px rgba(0, 6, 91, 0.05);
+    @media #{$md} {
+        display: inherit;
+    }
+    @media #{$xs} {
+        display: inherit;
+    }
+}
+
+.cta--single {
+    display: inline-flex;
+    align-items: center;
+    padding: 45px 70px 40px 70px;
+    width: 100%;
+    @media #{$lg} {
+        padding: 45px;
+    }
+    @media #{$xs} {
+        padding: 25px;
+    }
+    & .cta--icon {
+        font-size: 70px;
+        color: #ffa366;
+    }
+
+    & .cta--link {
+        display: inline-block;
+        margin-left: auto;
+        margin-right: 20px;
+
+        & .cta--link__icon {
+            height: 58px;
+            width: 58px;
+            line-height: 50px;
+            border: 2px solid #ffa366;
+            text-align: center;
+            text-align: center;
+            display: inline-block;
+            border-radius: 50%;
+            & i {
+                margin-left: 28px;
+                color: $white;
+                &:hover {
+                    color: $theme-color;
+                }
+            }
+        }
+    }
+}
+.cta--single.theme-bg {
+    & i {
+        &:hover {
+            color: $theme-color-blue !important;
+        }
+    }
+}
+.cta--title {
+    font-size: 36px;
+    color: $white;
+    margin-left: -25px;
+    margin-bottom: 0px;
+    @media #{$xs} {
+       font-size: 22px; 
+    }
+}
+.cta--single {
+    &.black-soft-bg {
+        & .cta--icon {
+            color: #777e93;
+        }
+        & .cta--link__icon {
+            border: 2px solid #777e93;
+        }
+    }
+}
+
+// cta home two start
+.appoint-cta-area {
+    margin-top: -90px;
+}
+.appoint-cta-space {
+    padding: 90px 100px 75px 100px;
+    @media #{$lg} {
+        padding: 40px 50px 25px 50px;
+    }
+    @media #{$xs} {
+        padding: 30px;
+    }
+}
+.aappoint {
+    margin-bottom: 15px;
+    & input,
+    & select {
+        color: #83868c;
+        font-size: 16px;
+        display: block;
+        width: 100%;
+        height: 70px;
+        background: $white;
+        font-weight: 500;
+        border: 1px solid transparent;
+        font-family: "Saira Semi Condensed", sans-serif;
+        outline: none;
+        padding: 0px 25px;
+    }
+    & button {
+        border-radius: 0px;
+        display: block;
+        height: 70px;
+        line-height: 70px;
+        width: 100%;
+        @media #{$laptop} {
+            padding: 0px 30px;
+        }
+    }
+}
+.aappoint {
+    & input::-moz-placeholder {
+        color: #83868c;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "Saira Semi Condensed", sans-serif;
+        opacity: 1;
+    }
+    & input::placeholder {
+        color: #83868c;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "Saira Semi Condensed", sans-serif;
+        opacity: 1;
+    }
+}
+.aappoint__title {
+    margin-bottom: 0px;
+    font-size: 27px;
+}
+
+//newsletter area start
+.newsletter-area {
+    margin-bottom: -90px;
+}
+.anewsletter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media #{$md} {
+       display: inherit;
+    }
+    @media #{$xs} {
+        display: inherit;
+    }
+    & h2 {
+        line-height: 1;
+        @media #{$md} {
+            margin-bottom: 30px;
+        }
+        @media #{$xs} {
+            margin-bottom: 30px;
+        }
+    }
+}
+.anewsletter--bg {
+    padding: 80px 100px;
+    background: $theme-color;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    @media #{$md} {
+       padding: 60px;
+    }
+    @media #{$xs} {
+        padding: 40px;
+        padding-bottom: 45px;
+    }
+    & .news__shape {
+        position: absolute;
+        z-index: 1;
+    }
+    & .news__shape1 {
+        left: 100px;
+        top: -60px;
+        animation: float-bob-y infinite 3s linear;
+    }
+    & .news__shape2 {
+        right: 108px;
+        bottom: -60px;
+        animation: float-bob-y infinite 3s linear;
+    }
+}
+.custom-mar-20 {
+    @media #{$md} {
+       margin-left: -15px;
+        margin-right: -15px;
+    }
+    @media #{$xs} {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+}
+.custom-pad-20 {
+    @media #{$md} {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    @media #{$xs} {
+         padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+//newsletter area end
+
+// cta home two end
+
+// cta home three start
+.newsletter__wrapper--3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @media #{$md,$xs} {
+        display: inherit;
+    }
+}
+.news__subscribe {
+    flex-basis: 50%;
+    @media #{$laptop,$lg,$md,$xs} {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    & .field {
+        position: relative;
+        display: inline-block;
+        margin-right: 15px;
+        &:after {
+            position: absolute;
+            content: '\f1d8';
+            top: 30px;
+            right: 30px;
+            color: #83868c;
+            font-size: 16px;
+            font-family: "Font Awesome 5 Pro";
+        }
+        & input {
+            height: 80px;
+            width: 350px;
+            background: $white;
+            color: #83868c;
+            display: inline-block;
+            border-radius: 50px;
+            padding: 0px 30px;
+            border: none;
+            outline: none;
+            margin-bottom: 20px;
+            @media #{$xs} {
+                width: 100%;
+            }
+            @media #{$sm} {
+                width: 350px;
+            }
+        }
+        @media #{$xs} {
+            margin-right: 0px;
+        }
+    }
+    & button {
+        height: 80px;
+        line-height: 80px;
+        padding: 0px 50px;
+        margin-bottom: 20px;
+    }
+}
+.news__service {
+    flex-basis: 50%;
+    @media #{$laptop,$lg,$md,$xs} {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+.news__service--number__icon {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    line-height: 65px;
+    border: 5px solid #cbced8;
+    display: inline-block;
+    background: $white;
+    text-align: center;
+    margin-right: 15px;
+    vertical-align: middle;
+    animation: pulse 8s infinite;
+    @media #{$xs} {
+        margin-bottom: 20px;
+    }
+}
+.news__service--number__btn {
+    display: inline-block;
+    vertical-align: middle;
+    & a {
+        height: 80px;
+        line-height: 80px;
+        padding: 0px 45px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+}
+.news__service--number {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    @media #{$xs} {
+        display: inherit;
+    }
+    @media #{$sm} {
+        display: flex;
+    }
+}
+.anewsletter__btn a {
+    vertical-align: middle;
+}
+// cta home three end
+

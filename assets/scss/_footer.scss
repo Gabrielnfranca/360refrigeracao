@@ -1,0 +1,261 @@
+/* 15. Footer CSS */
+
+footer {
+	background-position: center;
+	background-repeat: repeat;
+}
+.footer__widget--title {
+	font-size: 27px;
+	color: $white;
+	margin-bottom: 25px;
+	padding-bottom: 8px;
+	position: relative;
+	&:before {
+		position: absolute;
+		content: '';
+		height: 2px;
+		width: 20px;
+		background: $theme-color;
+		left: 0px;
+		bottom: 0px;
+	}
+}
+.footer__widget {
+    @media #{$laptop} {
+        &.pl-85 {
+            padding-left: 30px;
+        }
+    }
+    @media #{$lg} {
+        &.pl-80 {
+            padding-left: 40px;
+        }
+        &.pl-85 {
+            padding-left: 0px;
+        }
+    }
+    @media #{$md} {
+        padding-left: 0px;
+    }
+    @media #{$xs} {
+        padding-left: 0px;
+    }
+	& p {
+		color: $footer-text-color;
+	}
+}
+.emg__number {
+	& h5 {
+		font-size: 20px;
+		color: $theme-color;
+		font-weight: 500;
+	}
+	& h4 {
+		font-size: 24px;
+		color: $white;
+		margin-bottom: 0px;
+	}
+}
+.widget__links {
+	& li {
+		list-style: none;
+		margin-bottom: 5px;
+		&:last-child {
+			margin-bottom: 0px;
+		}
+		& a {
+			color: $footer-text-color;
+            position: relative;
+            &:before {
+                content: '_';
+                left: 0px;
+                bottom: 0px;
+                margin-right: 5px;
+            }
+			&:hover {
+				color: $theme-color;
+			}
+		}
+	}
+}
+.widget__contact {
+	& li {
+		list-style: none;
+		margin-bottom: 5px;
+		color: $footer-text-color;
+		&:last-child {
+			margin-bottom: 0px;
+		}
+		& span {
+			display: block;
+			color: $white;
+			margin-bottom: 5px;
+		}
+        & a {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+	}
+}
+.widget__subscribe {
+	& .field {
+		position: relative;
+		&:after {
+			position: absolute;
+			content: '\f1d8';
+			top: 20px;
+			right: 20px;
+			font-size: 15px;
+			color: $theme-color;
+			font-family: "Font Awesome 5 Pro";
+		}
+		& input {
+			height: 60px;
+			width: 100%;
+			border: 1px solid rgba(255,255,255,0.35);
+			font-size: 16px;
+			font-weight: 500;
+			color: $footer-text-color;
+			display: block;
+			padding: 0px 20px;
+			outline: none;
+			border-radius: 3px;
+			background: transparent;
+			margin-bottom: 20px;
+			@include transition(.3s);
+			&:focus {
+				border-color: $theme-color;
+			}
+		}
+	}
+	& button {
+		display: block;
+		width: 100%;
+		border-radius: 3px;
+		border: 0px;
+		@include transition(.3s);
+        position: relative;
+	}
+}
+.copyright-border {
+	border-top: 1px solid rgba(255, 255, 255,0.102);
+}
+.copyright__text {
+	& span {
+		color: $footer-text-color;
+		display: block;
+		& a {
+			color: $theme-color;
+		}
+	}
+}
+.copyright__social {
+	padding: 18px 0px 13px 0px;
+    @media #{$xs} {
+        text-align: center !important;
+    }
+	& a {
+		height: 45px;
+		width: 45px;
+		line-height: 45px;
+		text-align: center;
+		font-size: 15px;
+		display: inline-block;
+		margin-right: 12px;
+		background: #393f53;
+		color: $white;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+		&:last-child {
+			margin-right: 0px;
+		}
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 0%;
+            background: $theme-color;
+            @include transition(.3s);
+            z-index: -1;
+            transform: rotate(90deg);
+        }
+		&:hover {
+            color: $white;
+            & i {
+                transform: rotate(360deg);
+            }
+            &:before {
+                width: 100%;
+            }
+		}
+	}
+}
+.copyright__text {
+    @media #{$xs} {
+        padding-top: 15px;
+        text-align: center;
+    }
+}
+
+//footer home three start
+.widget__links--3 {
+    & li {
+        & a {
+            &:before {
+                content: '\f054';
+                font-family: "Font Awesome 5 Pro";
+                font-size: 12px;
+            }
+            &:hover {
+                padding-left: 5px;
+            }
+        }
+    }
+}
+.widget__post--img {
+    max-width: 85px;
+    float: left;
+    margin-right: 15px;
+}
+.widget__post--text {
+    overflow: hidden;
+    & span {
+        display: block;
+        color: #bcbfc9;
+        @media #{$lg,$xs} {
+            font-size: 15px;
+        }
+    }
+}
+.widget__post--text__title {
+    font-size: 18px;
+    color: #bcbfc9;
+    font-weight: 500;
+    @media #{$laptop,$lg} {
+        & br {
+            display: none;
+        }
+    }
+    &:hover {
+        color: $theme-color;
+    }
+}
+.insta__widget {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(3,1fr);
+    max-width: 270px;
+}
+.copyright__text--3 {
+    @media #{$xs,$md} {
+        text-align: center;
+    }
+}
+.copyright__logo {
+    padding: 18px 0px 15px 0px;
+}
+//footer home three end

@@ -1,0 +1,288 @@
+/* 09. Team CSS */
+.ateam {
+    position: relative;
+    z-index: 4;
+    background: transparent;
+}
+.ateam__img {
+    position: relative;
+    overflow: hidden;
+    & img {
+        width: 100%;
+    }
+    &--social {
+        position: absolute;
+        height: 100%;
+        background: $black-soft;
+        top: 0px;
+        right: -55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include transition(.3s);
+        & ul {
+            padding: 22px 18px;
+            background: $theme-color;
+            & li {
+                margin: 10px 0px;
+                list-style: none;
+                & a {
+                    font-size: 15px;
+                    color: $white;
+                    display: inline-block;
+                    &:hover {
+                        color: $heading-color;
+                        transform: rotateY(360deg);
+                    }
+                }
+            }
+        }
+    }
+}
+.ateam__text {
+    background: #222e54;
+    padding: 20px 25px 17px 25px;
+    & span {
+        color: $white;
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+.ateam__text--title {
+    font-size: 27px;
+    color: $white;
+    margin-bottom: 0px;
+    &:hover {
+        color: $theme-color;
+    }
+}
+.ateam:hover {
+    & img {
+        opacity: 0.7;
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    & .ateam__img--social {
+        right: 0px;
+    }
+}
+.team-shape {
+    position: absolute;
+    font-size: 72px;
+    color: #616981;
+    
+    @media #{$xs} {
+        display: none;
+    }
+}
+.team-shape-1 {
+    top: 180px;
+    left: 190px;
+    animation:  team-shape-1 20s infinite linear;
+    @media #{$lg,$md,$xs} {
+        top: 80px;
+        left: 120px;
+        animation: scale-up-one infinite 3s linear;
+    }
+}
+.team-shape-2 {
+    bottom: 200px;
+    left: 200px;
+    animation: scale-up-one infinite 3s linear;
+    @media #{$desktop,$laptop,$lg,$md,$xs} {
+        bottom: 10px;
+        left: 130px;
+    }
+}
+.team-shape-3 {
+    top: 140px;
+    right: 205px;
+    animation: team-shape-3 20s infinite linear;
+    @media #{$lg,$md,$xs} {
+        top: 80px;
+        right: 120px;
+        animation: scale-up-one infinite 3s linear;
+    }
+}
+.team-shape-4 {
+    bottom: 190px;
+    right: 135px;
+    animation: rotated 5s infinite linear;
+    @media #{$desktop,$laptop,$lg,$md,$xs} {
+        bottom: 10px;
+        right: 120px;
+    }
+}
+
+
+//team home three start here
+.ateam__3 {
+    position: relative;
+    overflow: hidden;
+    & img {
+        width: 100%;
+    }
+    .ateam__3--overlay {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        background: rgba(4, 14, 46,0.3);
+        opacity: 0;
+        visibility: hidden;
+        @include transition(.5s);
+        &__social {
+            position: absolute;
+            top: 30%;
+            left: 0px;
+            right: 0px;
+            text-align: center;
+            transform: translateY(-50%);
+            @include transition(.5s);
+            & a {
+                height: 45px;
+                line-height: 45px;
+                width: 45px;
+                text-align: center;
+                font-size: 15px;
+                color: $heading-color;
+                display: inline-block;
+                margin: 0px 4px;
+                background: $white;
+                &:hover {
+                    background: $theme-color;
+                    color: $white;
+                    & i {
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+        }
+        &__text {
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            text-align: center;
+            bottom: -100px;
+            @include transition(.5s);
+        }
+    }
+    &:hover {
+        .ateam__3--overlay {
+            opacity: 1;
+            visibility: visible;
+            & .ateam__3--overlay__social {
+                top: 50%;
+            }
+            & .ateam__3--overlay__text {
+                bottom: 50px;
+                @media #{$lg,$md,$xs} {
+                    bottom: 30px;
+                }
+            }
+        }
+    }
+}
+.ateam__3--title {
+    font-size: 27px;
+    margin-bottom: 0px;
+    &:hover {
+        color: $theme-color !important;
+    }
+}
+.ateam__3--left {
+	padding-left: 185px;
+	padding-right: 120px;
+    @media #{$desktop-custom} {
+        padding-right: 40px;
+        & br {
+            display: none;
+        }
+    }
+    @media #{$desktop,$laptop} {
+        padding-right: 40px;
+        padding-left: 100px;
+        & br {
+            display: none;
+        }
+    }
+    @media #{$lg,$md,$xs} {
+        padding: 0px;
+        margin-bottom: 50px;
+    }
+    & p {
+        @media #{$lg} {
+            padding-right: 250px;
+        }
+    }
+    
+}
+
+//team home three end here
+
+//About team start here
+.about-team-area {
+    background-position: center;
+    background-repeat: repeat;
+}
+.about--ateam__text {
+    background: $white;
+    & span,
+    & h4 {
+        color: $heading-color;
+    }
+}
+//About team end here
+
+//team details area end here
+
+.team__sidebar-wrapper {
+    padding: 40px 30px;
+    
+}
+.team__sidebar--widget img {
+    width: 100%;
+}
+.team--sidebar__info {
+    padding: 30px 25px 0px 25px;
+    & .service__sidebar--widget__title {
+        margin-bottom: 0px;
+    }
+}
+div.team__sidebar--social {
+    padding: 10px 25px 30px 25px;
+    & a {
+        color: #bcbfc9;
+    }
+}
+.team--details__feature--icon {
+    height: 70px;
+    width: 70px;
+    line-height: 80px;
+    background: $theme-color;
+    display: inline-block;
+    text-align: center;
+    border-radius: 20px;
+    & i {
+        font-size: 45px;
+        color: $white;
+        vertical-align: middle;
+    }
+}
+.team--details__feature--text__title {
+    font-size: 19px;
+    margin-bottom: 15px;
+    &:hover {
+        color: $theme-color;
+    }
+}
+.team--skill__title {
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+div.team__sidebar--social {
+    text-align: inherit !important;
+}
+.team-details-wrapper .service-details-subtitle {
+	font-size: 34px;
+}

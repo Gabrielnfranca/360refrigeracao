@@ -1,0 +1,110 @@
+/* 16. Video CSS */
+
+.video-area {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    min-height: 800px;
+    @media #{$lg} {
+        min-height: 760px;
+    }
+    &:before {
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 100%;
+        left: 0px;
+        top: 0px;
+        background: rgba(21, 32, 66,0.9);
+        z-index: -1;
+    }
+    @media #{$xs} {
+        min-height: inherit;
+    }
+}
+.avideo-btn {
+        height: 100px;
+        width: 100px;
+        line-height: 100px;
+        background: $white;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+    & a {
+        height: 86px;
+        width: 86px;
+        line-height: 86px;
+        background: #ff6600;
+        display: inline-block;
+        font-size: 18px;
+        color: #ffffff;
+        text-align: center;
+        border-radius: 50%;
+        transform: translate(4px, 4px);
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        &:hover {
+            background: $theme-color-blue;
+        }
+    }
+}
+.avideo__text {
+    @media #{$xs} {
+        padding-bottom: 120px;
+        & .section-title {
+            font-size: 34px;
+        }
+    }
+}
+
+//video home 3 start here
+.video-area-3 {
+    min-height: inherit;
+    &:before {
+        background: rgba(21, 32, 66,0.85);
+    }
+}
+.avideo__text--3 {
+    @media #{$xs} {
+        padding-bottom: 0px;
+    }
+}
+
+//video animation
+.play_btn {
+    position: relative;
+}
+.play_btn:after, .play_btn:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #cccccc;
+    animation-name: popupBtn;
+    animation-duration: 1.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.play_btn:before {
+    animation-delay: .8s;
+} 
+@keyframes popupBtn{
+    0% {
+        transform: scale(1);
+        opacity: .6;
+    }
+    50% {
+        transform: scale(1.6);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(2.2);
+        opacity: 0;
+    }
+}

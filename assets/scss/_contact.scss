@@ -1,0 +1,222 @@
+/* 08. Contact CSS */
+
+.acontact__img {
+    & img {
+        margin-left: -165px;
+        min-height: 715px;
+        @media #{$md} {
+           min-height: inherit; 
+        }
+        @media #{$xs} {
+            margin-left: 0px;
+            min-height: inherit;
+        }
+    }
+}
+.acontact__form {
+    background: $theme-color;
+    padding: 40px 50px 50px 50px;
+    @media #{$xs} {
+          padding: 20px 30px 30px 30px;  
+        }
+    @media #{$lg} {
+        &.mr-70 {
+            margin-right: 20px;
+        }
+    }
+    @media #{$md,$xs} {
+        &.mr-70 {
+            margin-right: 0px;
+            margin-bottom: 50px;
+        }
+    }
+    & input,
+    & textarea,
+    & select {
+        height: 60px;
+        width: 100%;
+        display: block;
+        font-size: 16px;
+        color: #83868c;
+        padding: 0px 20px;
+        border-radius: 3px;
+        background: $white;
+        margin-bottom: 20px;
+        border: none;
+        outline: none;
+        font-family: $saira;
+        font-weight: 500;
+        &::-moz-placeholder {
+            color: #83868c;
+            opacity: 1;
+        }
+        &::placeholder {
+            color: #83868c;
+            opacity: 1;
+        }
+    }
+    & textarea {
+        height: 110px;
+        padding: 20px;
+    }
+    & button {
+        height: 60px;
+        width: 100%;
+        display: block;
+        background: $heading-color;
+        color: $white;
+        line-height: 60px;
+        border: none;
+        outline: none;
+        @include transition(.3s);
+        border-radius: 3px;
+        font-weight: 600;
+        &:hover {
+            background: $theme-color-blue;
+        }
+    }
+}
+.select__field--arrow {
+    position: relative;
+    &:after {
+        position: absolute;
+        content: '\f078';
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px;
+        font-size: 15px;
+        color: #83868c;
+        font-family: "Font Awesome 5 Pro";
+        z-index: 2;
+    }
+}
+.acontact__form--title {
+    font-size: 36px;
+    color: $white;
+    margin-bottom: 30px;
+    @media #{$xs} {
+        margin-bottom: 20px;
+    }
+}
+.acontact__img {
+    position: relative;
+    @media #{$md} {
+        margin-bottom: 60px;
+    }
+    &--text {
+        padding: 100px 20px 20px 40px;
+        height: 320px;
+        width: 340px;
+        position: absolute;
+        right: 0px;
+        bottom: 100px;
+        @media #{$xs} {
+            position: inherit;
+            padding-left: 0px;
+            height: inherit;
+            width: inherit;
+        }
+        & h2 {
+            font-size: 60px;
+            line-height: 1;
+            margin-bottom: 0px;
+            & span {
+                color: $theme-color;
+            }
+        }
+        &__backtitle {
+            font-size: 290px;
+            color: $grey;
+            display: inline-block;
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            line-height: 0.299;
+            z-index: 1;
+            -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+            -webkit-text-stroke-width: 4px;
+            -webkit-text-stroke-color: $grey;
+            margin-bottom: 0px;
+            @media #{$xs} {
+                font-size: 200px;
+                left: inherit;
+                transform: inherit;
+                opacity: 0;
+            }
+        }
+    }
+}
+
+//contact inner area start
+.contact__inner {
+    display: flex;
+    align-items: center;
+    @media #{$md,$sm,$xs} {
+        display: inherit;
+    }
+}
+.contact__inner--img {
+    flex-basis: 40%;
+    @media #{$lg} {
+        flex-basis: 45%;
+    }
+    & .c-img {
+        width: 100%;
+    }
+}
+.contact__inner--form {
+    flex-basis: 60%;
+    padding: 86px 80px 88px 80px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 6, 91, 0.05);
+    background: $white;
+    @media #{$laptop} {
+        padding: 71px 80px 73px 80px;
+    }
+    @media #{$lg} {
+        flex-basis: 55%;
+        padding: 62px 50px 62px 50px;
+    }
+    @media #{$xs} {
+        padding: 50px 30px;
+    }
+}
+.contact__inner--img__number {
+    text-align: center;
+    padding: 40px 30px;
+    margin: 0px 1px;
+    margin-top: -1px;
+    position: relative;
+    & a {
+        border: 5px solid #ffd7bd;
+        line-height: 70px;
+        font-size: 24px;
+        padding: 0px 35px;
+        @media #{$xs} {
+            font-size: 18px;
+        }
+    }
+    & .news__service--number__icon {
+        border-color: #bcd4ff;
+        background: $theme-color-blue;
+    }
+}
+.map-area {
+    height: 700px;
+    width: 100%;
+    margin-bottom: 0px;
+    position: relative;
+    & iframe {
+        border: none;
+        height: 100%;
+        width: 100%;
+    }
+}
+.contact-newsletter-area {
+    position: absolute;
+    bottom: -90px;
+    left: 0px;
+    width: 100%;
+    z-index: 2;
+    margin: 0px;
+}

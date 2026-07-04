@@ -1,0 +1,228 @@
+/* 11. Choose CSS */
+
+.choose-area {
+    background-repeat: no-repeat;
+    @media #{$lg} {
+        background-size: cover;
+    }
+}
+.choose-bg-right {
+    background-repeat: no-repeat;
+    width: 54%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    background-size: cover;
+    margin-top: 60px;
+    @media #{$lg} {
+        width: 60%;
+    }
+    @media #{$md} {
+        width: 100%;
+        margin: 0px;
+    }
+    @media #{$xs} {
+        width: 100%;
+        margin: 0px;
+    }
+}
+.choose--content {
+    padding: 180px 0px 10px 100px;
+    @media #{$laptop} {
+       & br {
+            display: none;
+        }
+    }
+    @media #{$lg} {
+        & br {
+            display: none;
+        }
+        padding: 180px 0px 10px 20px;
+    }
+    @media #{$md,$xs} {
+       padding: 120px 0px 70px 0px;
+    }
+    
+}
+.achoose {
+    &__icon {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        line-height: 116px;
+        border: 7px solid rgb(193, 215, 255);
+        display: inline-block;
+        text-align: center;
+        float: left;
+        margin-right: 30px;
+        animation: pulse-blue 6s infinite;
+        @media #{$xs} {
+            margin-right: 0px;
+            margin-bottom: 15px;
+            float: inherit;
+        }
+        & i {
+            font-size: 48px;
+            color: $white;
+            @include transition(.5s);
+        }
+        &.theme-bg {
+            border-color: rgb(255, 213, 185);
+             animation: pulse-orange 6s infinite;
+        }
+    }
+    &__text {
+        & p {
+            margin-bottom: 0px;
+        }
+    }
+    &:hover {
+        & i {
+            transform: rotateY(360deg);
+            display: inline-block;
+        }
+    }
+}
+.achoose__text--title {
+    font-size: 27px;
+}
+
+//choose home three start
+.choose-area-3 {
+    background-position: center;
+    background-repeat: repeat;
+    overflow-x: hidden;
+}
+.choose--content__3 {
+    padding: 0px;
+    @media #{$md,$xs} {
+        padding-top: 70px;
+    }
+}
+.achoose__img--3 {
+    & img {
+        max-width: inherit;
+        @media #{$desktop-custom} {
+            max-width: 725px;
+
+        }
+        @media #{$md,$xs} {
+            max-width: 100%;
+        }
+    }
+}
+
+//choose home three end
+
+//choose inner start
+.choose--feature__left {
+   @media #{$laptop} {
+        margin-right: 65px;
+    }
+    @media #{$xs} {
+        margin-right: 0px;
+    }
+}
+.choose--feature__icon {
+    & i {
+        font-size: 60px;
+        color: $theme-color;
+    }
+}
+.choose--feature__text {
+    & p {
+        margin-bottom: 0px;
+    }
+}
+.choose--feature__text--title {
+    font-size: 27px;
+    margin-bottom: 15px;
+    &:hover {
+        color: $theme-color;
+    }
+}
+.choose-fact-area {
+    position: relative;
+    z-index: 2;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media #{$md} {
+        padding-bottom: 255px;
+    }
+    @media #{$xs} {
+        padding-bottom: 85px;
+    }
+    &:before {
+        position: absolute;
+        content: "";
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        background: rgba(21, 32, 66, 0.9);
+        z-index: -1;
+    }
+}
+.choose--fact__icon {
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    border: 2px dashed $white;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    @include transition(.3s);
+    & i {
+        font-size: 48px;
+        color: $white;
+        vertical-align: middle;
+        @include transition(.5s);
+    }
+}
+.choose--fact__text {
+    & h2 {
+        font-size: 60px;
+        color: $white;
+        margin-bottom: 5px;
+    }
+    & span {
+        font-size: 20px;
+        color: $white;
+        display: block;
+    }
+}
+.choose--fact {
+   @include transition(.3s); 
+}
+.choose--fact:hover {
+    transform: translateY(-5px);
+    & .choose--fact__icon {
+        border-color: $theme-color;
+        background: $theme-color;
+        & i {
+            transform: rotate(360deg);
+            display: inline-block;
+        }
+    }
+}
+
+div.choose--afeature__icon {
+    border-radius: 5px;
+    padding: 6px;
+    & i {
+        border-radius: 5px;
+        height: 70px;
+        width: 70px;
+        line-height: 77px;
+    }
+}
+.choose-work-area {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+//choose inner end
+
+

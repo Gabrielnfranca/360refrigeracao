@@ -1,0 +1,102 @@
+/* 22. Page Title CSS */
+
+.page-title-area {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+    z-index: 1;
+    &:before {
+        position: absolute;
+        content: '';
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        background: rgba(21, 32, 66,0.9);
+        z-index: -1;
+    }
+}
+.page-title {
+    & .breadcrumb-title {
+        font-size: 80px;
+        font-weight: 700;
+        line-height: 1;
+        color: $white;
+        text-transform: uppercase;
+       @media #{$xs} {
+           font-size: 48px;
+       }
+    }
+    & .trail-items {
+        padding: 18px 45px;
+        background: $theme-color;
+        display: inline-block;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        @media #{$xs} {
+            padding: 12px 30px;
+        }
+        & .trail-item {
+            display: inline-block;
+            & a,
+            & span {
+                font-size: 20px;
+                font-weight: 500;
+                color: $white;
+            }
+            & a {
+                padding-right: 25px;
+                position: relative;
+                &:before {
+                    position: absolute;
+                    content: '\f30b';
+                    font-size: 14px;
+                    color: $white;
+                    top: 52%;
+                    transform: translateY(-50%);
+                    right: 5px;
+                    font-family: "Font Awesome 5 Pro";
+                }
+                &:hover {
+                    color: $heading-color;
+                }
+            }
+        } 
+    }
+}
+.page-title-icon {
+    position: relative;
+    & i {
+        position: absolute;
+        font-size: 48px;
+        color: rgba(255,255,255,0.3);
+        &.hero__icon1 {
+            top: -150px;
+            left: 125px;
+            animation: scale-up-one infinite 3s linear;
+        }
+        &.hero__icon3 {
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0px;
+            animation: scale-up-one infinite 5s linear;
+        }
+        &.hero__icon2 {
+            bottom: -160px;
+            left: -70px;
+            animation: scale-up-one infinite 7s linear;
+            @media #{$lg,$md,$xs} {
+                padding-left: 60px;
+            }
+        }
+    }
+}
+.breadcrumb-menu {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	margin: 0 auto;
+	bottom: 0px;
+}

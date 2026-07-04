@@ -1,0 +1,203 @@
+/* 17. Faq CSS */
+
+.afaq__text {
+    margin-top: -10px;
+    @media #{$md,$xs} {
+        margin-top: 0px;
+    }
+    & .accordion-item:first-of-type .accordion-button {
+        border-radius: 0px;
+    }
+    & .accordion-button:not(.collapsed) {
+        color: $heading-color;
+        font-weight: 500;
+        background: transparent;
+        color: $theme-color;
+    }
+    & .accordion-button {
+        border-color: #dce1e4;
+        border: 0px;
+        padding-top: 23px;
+        padding-bottom: 23px;
+        font-size: 20px;
+        font-weight: 500;
+        @media #{$lg} {
+            font-size: 18px;
+        }
+        @media #{$xs} {
+            font-size: 18px;
+        }
+    }
+    & .accordion-button:focus {
+        box-shadow: none;
+    }
+    & .accordion-item {
+        margin-bottom: 20px;
+        border: 1px solid #dce1e4;
+        padding: 0px 10px;
+        @media #{$xs} {
+            padding: 0px;
+        }
+    }
+    & .accordion-collapse {
+        border: none;
+    }
+    & .accordion-body {
+        padding-top: 0px;
+        padding-bottom: 23px;
+    }
+    & .accordion-button::after {
+        content: '\f067';
+        font-family: "Font Awesome 5 Pro";
+        background: none;
+        transform: none;
+        margin-right: -5px;
+        font-size: 18px;
+    }
+    & .accordion-button:not(.collapsed)::after {
+        content: '\f068';
+        font-family: "Font Awesome 5 Pro";
+        color: $theme-color;
+    }
+}
+.afaq__img {
+    & img {
+        max-width: inherit;
+        margin-left: -165px;
+        @media #{$desktop} {
+            max-width: 100%;
+            margin-left: 0px;
+        }
+        @media #{$laptop} {
+            max-width: 100%;
+            margin-left: 0px;
+        }
+        @media #{$lg} {
+            max-width: 100%;
+            margin-left: 0px;
+        }
+        @media #{$md} {
+            max-width: 100%;
+            margin-left: 0px;
+        }
+        @media #{$xs} {
+            max-width: 100%;
+            margin-left: 0px;
+        }
+    }
+}
+
+//faq home three start here
+.faq-area-3 {
+    @media #{$lg,$md,$xs} {
+        padding-bottom: 90px;
+    }
+}
+.afaq__img--3 {
+    position: relative;
+    @media #{$lg,$md,$xs} {
+        margin-right: 0px;
+        margin-bottom: 70px;
+    }
+    & img {
+        position: absolute;
+        @media #{$xs} {
+            position: inherit;
+            width: 100%;
+        }
+        &.img-1 {
+            top: 0px;
+            left: 0px;
+            z-index: 2;
+        }
+        &.img-2 {
+            top: 170px;
+            left: 235px;
+            z-index: 3;
+            @media #{$laptop} {
+                left: 130px;
+            }
+            @media #{$lg} {
+                left: 285px;
+            }
+            @media #{$xs} {
+                display: none;
+            }
+        }
+        &.img-3 {
+            margin-top: 45px;
+            margin-left: 60px;
+            position: inherit;
+            @media #{$xs} {
+                display: none;
+            }
+        }
+    }
+    & i {
+        position: absolute;
+        font-size: 100px;
+        color: #cecfd4;
+        @media #{$xs} {
+            display: none;
+        }
+        &.icon-one {
+            top: 15px;
+            right: 30px;
+            animation: scale-up-one infinite 5s linear;
+            @media #{$laptop} {
+                right: -55px;
+            }
+        }
+        &.icon-two {
+            left: 30px;
+            bottom: -30px;
+            animation: scale-up-one infinite 3s linear;
+            @media #{$laptop} {
+                bottom: -55px;
+                left: 15px;
+            }
+        }
+    }
+}
+.afaq__text--3 {
+    margin-top: 0px;
+    @media #{$laptop,$lg,$md,$xs} {
+        margin-right: 0px;
+    }
+}
+//faq home three end here
+
+//faq inner page start here
+.afaq__banner {
+    position: relative;
+    & img {
+        width: 100%;
+    }
+}
+.afaq__banner--text {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: rgba(21, 32, 66,0.9);
+    height: 100%;
+    width: 100%;
+    padding: 90px 30px;
+    @media #{$lg,$xs} {
+        padding: 15px 30px;
+    }
+    @media #{$sm} {
+        padding: 90px 30px;
+    }
+    & p {
+        color: $white;
+        margin-bottom: 33px;
+    }
+}
+.afaq__banner--text__title {
+    font-size: 48px;
+    line-height: 1.25;
+    color: $white;
+    margin-bottom: 20px;
+}
+//faq inner page end here
+

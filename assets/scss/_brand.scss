@@ -1,0 +1,21 @@
+/* 21. Brand CSS */
+
+.brand-wrapper {
+    text-align: center;
+    & img {
+        display: inline-block;
+    }
+}
+.brand-area-3 {
+    position: relative;
+    margin-bottom: -122px;
+    &:before {
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 210px;
+        background: $theme-color;
+        top: 0px;
+        right: 0px;
+    }
+}

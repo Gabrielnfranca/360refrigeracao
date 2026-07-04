@@ -1,0 +1,67 @@
+/* 20. Feature CSS */
+
+.afeature__text--title {
+    font-size: 27px;
+    margin-bottom: 20px;
+    @media #{$lg,$md,$xs} {
+        margin-bottom: 10px;
+    }
+    &:hover {
+        color: $theme-color;
+    }
+}
+.afeature__icon {
+    display: inline-block;
+    border: 2px dashed rgba(34, 112, 255,0.302);
+    padding: 10px;
+    border-radius: 50%;
+    @include transition(.3s);
+    & i {
+        height: 80px;
+        width: 80px;
+        line-height: 87px;
+        display: inline-block;
+        text-align: center;
+        background: $theme-color-blue;
+        border-radius: 50%;
+        color: $white;
+        font-size: 35px;
+        @include transition(.5s);
+    }
+}
+.afeature__text {
+    & p {
+        margin-bottom: 0px;
+        padding: 0px 25px;
+        @media #{$xs} {
+            padding: 0px;
+        }
+    }
+}
+.afeature {
+    &:hover {
+        & .afeature__icon {
+            border-color: $theme-color;
+            & i {
+                background: $theme-color;
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
+
+.about-feature-area {
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+}
+.choose--feature:hover {
+    & i {
+        animation-name: animation-pulse-shrink;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        display: inline-block;
+    }
+}

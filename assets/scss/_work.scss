@@ -1,0 +1,127 @@
+/* 19. Work CSS */
+
+.work-area {
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+.awork__text {
+    padding: 30px 30px 27px 30px;
+    border: 1px solid #dce1e4;
+    border-top: 0px;
+    background: $white;
+}
+.awork__text--title {
+    font-size: 27px;
+    @media #{$sm} {
+        font-size:24px;
+    }
+    &:hover {
+        color: $theme-color;
+    }
+}
+.awork__text--link {
+    & a {
+        font-weight: 600;
+        position: relative;
+        &:before,
+        &:after {
+            position: absolute;
+            content: '';
+            height: 2px;
+            width: 10px;
+            background: $body-text-color;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -20px;
+            @include transition(.3s);
+        }
+        &:after {
+            left: auto;
+            right: -20px;
+        }
+        &:hover {
+            color: $theme-color;
+            &:before,
+            &:after {
+                width: 25px;
+                left: -35px;
+                background: $theme-color;
+            }
+            &:after {
+                width: 25px;
+                right: -35px;
+                left: auto;
+            }
+        }
+    }
+}
+.awork__more--link {
+    & span {
+        display: inline-block;
+        & a {
+            font-weight: 600;
+            color: $theme-color;
+            text-decoration: underline;
+            @include transition(.3s);
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+.awork__img {
+    position: relative;
+    overflow: hidden;
+    & img {
+        width: 100%;
+    }
+    &--overlay {
+        position: absolute;
+        height: 0%;
+        width: 0%;
+        bottom: 0px;
+        left: 0px;
+        top: auto;
+        right: auto;
+        background: rgba(29, 40, 75,0.5);
+        visibility: hidden;
+        @include transition(.5s);
+        & i {
+            height: 80px;
+            width: 80px;
+            line-height: 95px;
+            text-align: center;
+            display: inline-block;
+            background: $theme-color;
+            color: $white;
+            font-size: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            @media #{$xs} {
+                height: 60px;
+                line-height: 65px;
+                width: 60px;
+                font-size: 28px;
+            }
+        }
+    }
+}
+.awork:hover {
+    & .awork__img--overlay {
+        height: 100%;
+        width: 100%;
+        top: 0px;
+        bottom: auto;
+        left: auto;
+        right: 0px;
+        visibility: visible;
+    }
+    & img {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    & i {
+        border-radius: 10px;
+    }
+}

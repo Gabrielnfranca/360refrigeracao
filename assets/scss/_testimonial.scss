@@ -1,0 +1,307 @@
+/* 13. Testimonial CSS */
+
+.testimonial-area {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.atestimonial__img {
+	& img {
+		max-width: inherit;
+		margin-left: -250px;
+		margin-top: -60px;
+        @media #{$md} {
+           margin-left: 0px;
+            margin-top: -60px;
+            max-width: 100%;
+        }
+        @media #{$xs} {
+           margin-left: 0px;
+            margin-top: 0px;
+            max-width: 100%;
+        }
+	}
+}
+.atestimonial__client--img {
+	width: 100px;
+	margin-right: 20px;
+	& img {
+		border-radius: 50%;
+		border: 4px solid #49526f;
+	}
+}
+.atestimonial__client--text__title {
+	font-size: 27px;
+	color: $white;
+	margin-bottom: 5px;
+}
+.atestimonial-active {
+	& .slide-prev,
+	& .slide-next {
+		position: absolute;
+		color: $white;
+		font-size: 24px;
+		border: none;
+		background: none;
+		outline: none;
+		cursor: pointer;
+		z-index: 3;
+		&:hover {
+			color: $theme-color;
+		}
+	}
+	& .slide-prev {
+		bottom: 28px;
+		right: 100px;
+        @media #{$xs} {
+           right: 49px; 
+            bottom: 6px;
+        }
+		&:before {
+			position: absolute;
+			content:'';
+			height: 10px;
+			width: 10px;
+			border-radius: 50%;
+			vertical-align: middle;
+			background: #8e94a5;
+			top: 50%;
+			transform: translateY(-50%);
+			right: -16px;
+		}
+	}
+	& .slide-next {
+		bottom: 28px;
+		right: 50px;
+        @media #{$xs} {
+            right: 0px;
+            bottom: 6px;
+        }
+	}
+}
+//swipper default css
+.swiper-button-prev::after {
+    display: none;
+}
+.swiper-button-next::after {
+    display: none;
+}
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+    left: inherit;
+}
+.swiper-button-prev, .swiper-button-next {
+    top: inherit;
+}
+//swipper default css
+.atestimonial__text {
+    @media #{$md} {
+            padding: 80px 0px;
+        }
+    @media #{$xs} {
+            padding: 80px 0px;
+        }
+}
+
+//testimonial home two start
+.testimonial-area-2 {
+    background-position: center top;
+    background-repeat: repeat;
+    border-bottom: 1px solid #dce1e4;
+}
+.atestimonial__client--text__title2 {
+    color: $heading-color;
+}
+.atestimonial-2 {
+    & p {
+        font-size: 20px;
+        line-height: 1.7;
+    }
+    & img {
+        border: 5px solid $white;
+        border-radius: 50%;
+    }
+}
+.swiper-container-horizontal.common-dots.testimonial-active-2 {
+    & .slide-dots {
+        left: 60%;
+        bottom: 60px;
+        @media #{$xs} {
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0px;
+        }
+    }
+}
+.atestimonial__img--2 {
+    & img {
+        max-width: inherit;
+        margin-left: 65px;
+        @media #{$desktop} {
+            max-width: 100%;
+            margin-left: 0px;
+        }
+        @media #{$laptop} {
+            max-width: 100%;
+            margin-left: 0px;
+        }
+        @media #{$lg} {
+            max-width: 100%;
+            margin-left: 0px;
+        }
+        @media #{$md} {
+            width: 100%;
+            margin-left: 0px;
+            padding-bottom: 45px;
+        }
+        @media #{$xs} {
+            width: 100%;
+            margin-left: 0px;
+            padding-bottom: 45px;
+        }
+    }
+}
+.testimonial-section-title {
+    line-height: 1;
+    & span {
+        line-height: 1;
+    }
+}
+//testimonial home two end
+
+//testimonial home three start
+.testimonial-area-3 {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.atestimonial__3--text {
+    background: $white;
+    padding: 45px 40px;
+    box-shadow: 0px 5px 20px 0px rgba(0, 6, 91, 0.05);
+    &.about__test--text {
+        box-shadow: none;
+        border: 1px solid rgb(220, 225, 228);
+    }
+    @media #{$xs} {
+        padding: 35px 30px;
+    }
+    &__rating {
+        & i {
+            font-size: 16px;
+            color: $theme-color;
+            margin-right: 6px;
+            &.far {
+                color: #797979;
+            }
+        }
+    }
+    & p {
+        font-size: 20px;
+        line-height: 32px;
+        margin-bottom: 0px;
+    }
+}
+.atestimonial__3--client {
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+    background: $white;
+    box-shadow: 0px 5px 20px 0px rgba(0, 6, 91, 0.05);
+    position: relative;
+    z-index: 1;
+    &.about__test--client {
+        background: $grey2;
+        box-shadow: none;
+    }
+    @media #{$xs} {
+        padding: 20px 30px;
+    }
+    &:before {
+        height: 0%;
+        width: 100%;
+        position: absolute;
+        left: 0px;
+        bottom: auto;
+        top: 0px;
+        background: $theme-color;
+        position: absolute;
+        content: '';
+        visibility: hidden;
+        @include transition(.3s);
+        z-index: -1;
+    }
+    &__img {
+        width: 80px;
+        margin-right: 20px;
+        border-radius: 50%;
+        & img {
+            border: 5px solid #fff;
+            border-radius: 50%;
+        }
+    }
+    &__text {
+        & span {
+            display: block;
+            @include transition(.3s);
+            margin-bottom: 5px;
+        }
+    }
+}
+.atestimonial__3--client__text--title {
+    font-size: 27px;
+    margin-bottom: 0px;
+    @include transition(.3s);
+    @media #{$md,$xs} {
+        font-size: 24px;
+    }
+}
+
+
+.atestimonial__3 {
+    position: relative;
+    &:after {
+        height: 0px;
+        width: 0px;
+        background: $theme-color;
+        position: absolute;
+        content: '';
+        top: 0px;
+        right: 0px;
+        border-bottom-left-radius: 100px;
+        visibility: hidden;
+        @include transition(.3s);
+    }
+}
+.atestimonial__3:hover {
+    &:after {
+        width: 100px;
+        height: 100px;
+        visibility: visible;
+        @media #{$xs} {
+            height: 80px;
+            width: 80px;
+        }
+    }
+    & .atestimonial__3--client {
+        &:before {
+            height: 100%;
+            visibility: visible;
+            bottom: 0px;
+            top: auto;
+        }
+        & span,
+        & h4 {
+            color: $white;
+        }
+        & img {
+            border-color: #f8dac9;
+        }
+    }
+}
+.swiper-pagination2.swiper-pagination-clickable.swiper-pagination-bullets {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 0px;
+}
+//testimonial home three end

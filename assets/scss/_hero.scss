@@ -1,0 +1,410 @@
+/* 03. Hero CSS */
+
+.aslider--video__wrapper {
+    display: inline-flex;
+    align-items: center;
+    & .aslider--video__icon {
+        font-size: 13px;
+        height: 80px;
+        width: 80px;
+        border-radius: 5px;
+        border: 7px solid rgb(255, 224, 204);
+        line-height: 65px;
+        text-align: center;
+        background: $theme-color;
+        border-radius: 5px;
+        display: inline-block;
+        color: $white;
+        //animation: pulse-orange 6s infinite;
+    }
+}
+.aslider--video__title {
+    font-size: 24px;
+    margin-left: 15px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+.aslider--title {
+    font-size: 80px;
+    line-height: 1.12;
+    text-transform: uppercase;
+    font-weight: 700;
+    @media #{$xs} {
+        font-size: 48px;
+    }
+}
+.aslider--subtitle {
+    font-size: 30px;
+    line-height: 1.12;
+    font-weight: 500;
+    @media #{$xs} {
+        font-size: 26px;
+    }
+}
+.single-slider {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.slider-height {
+    min-height: 900px;
+}
+.slide-bg {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	z-index: 0;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	transform: scale(1);
+    @include transition(8s);
+}
+.swiper-slide-active  .slide-bg{
+	-webkit-transform: scale(1.12);
+	-moz-transform: scale(1.12);
+	transform: scale(1.12);
+}
+
+//slider arrow
+.slider-active .slide-prev, .slider-active .slide-next {
+    position: absolute;
+	font-size: 20px;
+	background: $white;
+    height: 65px;
+    width: 65px;
+    line-height: 65px;
+    font-size: 20px;
+    color: $heading-color;
+    border-radius: 50%;
+    border: none;
+	outline: none;
+	cursor: pointer;
+	z-index: 3;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+    left: 40px;
+	margin: 0px;
+    vertical-align: middle;
+    @include transition(.3s);
+    box-shadow: 0px 0px 30px 0px rgba(0, 5, 63, 0.1);
+    @media #{$desktop,$laptop,$lg,$md,$sm} {
+        top: inherit;
+        bottom: 15%;
+        left: 44.5%;
+        transform: none;
+    }
+    @media #{$laptop} {
+        left: 44%;
+    }
+    @media #{$lg} {
+        left: 42.5%;
+    }
+    @media #{$md} {
+        left: 40.5%;
+    }
+    @media #{$sm} {
+        left: 37.5%;
+    }
+    @media #{$xs} {
+        display: none;
+    }
+    &:hover {
+        background: $theme-color;
+        color: $white;
+    }
+}
+.slider-active .slide-next {
+	left: auto;
+    right: 40px;
+    @media #{$desktop,$laptop,$lg,$md,$sm} {
+        top: inherit;
+        bottom: 15%;
+        right: 44.5%;
+    }
+    @media #{$laptop} {
+        right: 44%;
+    }
+    @media #{$lg} {
+        right: 42.5%;
+    }
+    @media #{$md} {
+        right: 40.5%;
+    }
+    @media #{$sm} {
+        right: 37.5%;
+    }
+    @media #{$xs} {
+        display: none;
+    }
+}
+.swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
+    opacity: 0.7;
+}
+// hero home 2 start 
+.hero-area-2 {
+    background-position: top right;
+    background-repeat: no-repeat;
+    min-height: 900px;
+    position: relative;
+    z-index: 1;
+    @media #{$laptop,$lg,$md,$xs} {
+        background-size: cover;
+        &:before {
+            height: 100%;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            position: absolute;
+            content: '';
+            background: rgba(255,255,255,0.6);
+        }
+    }
+    @media #{$xs} {
+       min-height: 820px;
+   }
+}
+.hero__text--2 {
+    position: relative;
+    & .hero__icon {
+        position: absolute;
+        color: #d5d7db;
+        font-size: 56px;
+        animation-name: scale-up-one;
+        animation-delay: 0s;
+        @media #{$desktop,$laptop,$lg,$md,$xs} {
+            color: #666;
+        }
+    }
+    & .hero__icon1 {
+        left:-180px;
+        top: 125px;
+        animation: scale-up-one infinite 4s linear;
+        @media #{$desktop,$laptop,$lg,$md,$xs} {
+            left: 50px;
+            top: 30px;
+        }
+    }
+    & .hero__icon2 {
+        left: 400px;
+        top: 60px;
+        animation: scale-up-one infinite 3s linear;
+        @media #{$desktop,$laptop,$lg,$md,$xs} {
+            left: inherit;
+            right: 30px;
+            top: 100px;
+        }
+    }
+    & .hero__icon3 {
+        left: 340px;
+        bottom: -65px;
+        animation: scale-up-one infinite 6s linear;
+        @media #{$desktop,$laptop,$lg,$md,$xs} {
+            left: inherit;
+            right: 20px;
+            bottom: 30px;
+        }
+    }
+}
+// hero home 2 end
+
+// hero home 3 start
+.slider__icon {
+    position: absolute;
+    color: rgba(255,255,255,0.3);
+    font-size: 60px;
+    animation-name: scale-up-one;
+    animation-delay: 0s;
+    z-index: 2;
+    
+    &.slider__icon1 {
+        left: 180px;
+        top: 230px;
+        animation: scale-up-one infinite 4s linear;
+        @media #{$desktop,$laptop,$lg,$md} {
+            left: 100px;
+            top: 120px;
+        }
+        @media #{$xs} {
+            top: 90px;
+            left: 30px;
+        }
+    }
+    &.slider__icon2 {
+        left: 270px;
+        bottom: 200px;
+        animation: scale-up-one infinite 3s linear;
+        @media #{$desktop,$laptop,$lg,$md} {
+            bottom: 100px;
+            left: 40%;
+        }
+        @media #{$xs} {
+            display: none;
+        }
+    }
+    &.slider__icon3 {
+        top: 110px;
+        left: 35%;
+        animation: scale-up-one infinite 6s linear;
+        @media #{$desktop,$laptop,$lg,$md} {
+            top: 150px;
+            right: 100px;
+            left: auto;
+        }
+        @media #{$xs} {
+            top: 100px;
+            right: 30px;
+            left: auto;
+        }
+    }
+}
+
+
+
+.aslider-3 {
+    @media #{$md,$xs} {
+        padding-top: 200px;
+    }
+}
+.aslider--title__3 {
+    font-size: 90px;
+    line-height: 1;
+    text-transform: inherit;
+    font-weight: 700;
+    @media #{$md} {
+        font-size: 70px;
+    }
+    @media #{$xs} {
+        font-size: 48px;
+    }
+}
+.aslider--date {
+    font-size: 27px;
+    font-weight: 400;
+    color: $white;
+    margin-bottom: 25px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    & span {
+        color: $theme-color;
+    }
+}
+.aslider--subtitle__3 {
+    font-weight: 400;
+}
+.single-slider-3 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    & .slide-bg {
+        &:before {
+            position: absolute;
+            content: '';
+            height: 100%;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            background-color: rgba(4, 14, 46,0.8);
+        }
+    }
+}
+.slider-height-3 {
+    min-height: 885px;
+    @media #{$md,$xs} {
+        min-height: 800px;
+    }
+}
+.slider-active.swiper-container-horizontal.common-dots {
+    & .slide-dots {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 70px;
+        z-index: 5;
+        width: 20px;
+        left: auto;
+        bottom: auto;
+        @media #{$md,$xs} {
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 60px;
+            top: inherit;
+            right: inherit;
+            width: inherit;
+        }
+        & .swiper-pagination-bullet {
+            font-size: 0px;
+            height: 6px;
+            width: 6px;
+            padding: 3px;
+            background: $white;
+            cursor: pointer;
+            border-radius: 50%;
+            border: none;
+            display: inline-block;
+            outline: none;
+            position: relative;
+            margin: 8px;
+            &:before {
+                position: absolute;
+                content: '';
+                height: 18px;
+                width: 18px;
+                border-radius: 50%;
+                border: 3px solid transparent;
+                top: -6px;
+                left: -6px;
+            }
+            &.swiper-pagination-bullet-active {
+                &:before {
+                    border-color: $white;
+                }
+            }
+        }
+    }
+}
+.swiper-slide-active .slide-bg {
+	-webkit-transform: scale(1.12);
+	-moz-transform: scale(1.12);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media #{$xs} {
+        background-position: left;
+    }
+}
+.slide-shape {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 9;
+}
+.slide-shape img {
+	margin-bottom: -5px;
+}
+.single-slider-3 .slide-bg {
+  filter: grayscale(100%);
+}
+.slide-bg-pt {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	z-index: 2;
+	background-repeat: repeat;
+}
+.single-slider-3 .slide-bg::before {
+	display: none;
+}
+
+.slider__icon {
+	z-index: 3;
+}
+// hero home 3 end
+
