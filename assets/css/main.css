@@ -1954,9 +1954,19 @@ select {
   padding: 18px 39px;
   border-right: 1px solid #d6d8db;
 }
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
   .header-top-right ul li {
     padding: 18px 25px;
+    font-size: 14px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .header-top-right ul li {
+    padding: 18px 15px;
+    font-size: 13px;
   }
 }
 .header-top-right ul li:last-child {
@@ -7866,9 +7876,9 @@ footer {
    ============================== */
 .whatsapp-float {
   position: fixed;
-  width: auto;
-  height: 150px;
-  bottom: 118px; /* acima do botão scroll */
+  width: 280px;       /* desktop: imagem em tamanho confortável */
+  height: auto;
+  bottom: 110px;      /* acima do botão scroll (50px + 46px + 14px espaço) */
   right: 20px;
   background-color: transparent;
   z-index: 9999;
@@ -7877,32 +7887,47 @@ footer {
   transition: transform .3s ease;
 }
 .whatsapp-float img {
-  height: 100%;
-  width: auto;
+  width: 100%;
+  height: auto;
   display: block;
 }
 .whatsapp-float:hover {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
+
+/* Tablet */
 @media (max-width: 1199px) {
   .whatsapp-float {
-    height: 130px;
-    bottom: 116px;
+    width: 240px;
+    bottom: 108px;
     right: 14px;
   }
 }
+
+/* Mobile landscape / tablet pequeno */
 @media (max-width: 767px) {
   .whatsapp-float {
-    height: 120px;
-    bottom: 110px;
+    width: 250px;
+    bottom: 100px;
     right: 10px;
   }
 }
-@media (max-width: 479px) {
+
+/* Mobile padrão (375–479px) */
+@media (max-width: 575px) {
   .whatsapp-float {
-    height: 105px;
-    bottom: 104px;
+    width: 220px;
+    bottom: 95px;
     right: 8px;
+  }
+}
+
+/* Mobile pequeno (< 375px) */
+@media (max-width: 374px) {
+  .whatsapp-float {
+    width: 185px;
+    bottom: 90px;
+    right: 6px;
   }
 }
 
@@ -7929,4 +7954,68 @@ footer {
 .brand-names-grid span:hover {
   border-color: #f06424;
   color: #f06424;
+}
+
+/* ==============================
+   Mobile Compact Mode
+   Reduz rolagem excessiva em telas pequenas
+   ============================== */
+@media (max-width: 767px) {
+  .slider-height {
+    min-height: 640px;
+  }
+
+  .aslider--title {
+    font-size: 40px;
+    line-height: 1.1;
+    margin-bottom: 18px !important;
+  }
+
+  .aslider--subtitle {
+    font-size: 21px;
+    line-height: 1.25;
+    margin-bottom: 26px !important;
+  }
+
+  .pt-120 {
+    padding-top: 70px;
+  }
+
+  .pt-115 {
+    padding-top: 70px;
+  }
+
+  .pt-180 {
+    padding-top: 90px;
+  }
+
+  .pb-100 {
+    padding-bottom: 60px;
+  }
+
+  .pb-90 {
+    padding-bottom: 60px;
+  }
+
+  .pb-80 {
+    padding-bottom: 55px;
+  }
+
+  .mb-70 {
+    margin-bottom: 36px;
+  }
+
+  .mb-55 {
+    margin-bottom: 30px;
+  }
+
+  /* Remove bloco decorativo no mobile para reduzir scroll */
+  .brand-area {
+    display: none;
+  }
+
+  /* Mantém depoimentos e remove imagem lateral alta */
+  .testimonial-area .atestimonial__img {
+    display: none;
+  }
 }
