@@ -3433,9 +3433,12 @@ li.header--social a:hover i {
 }
 
 .aabout-img_text {
-  padding: 28px 52px;
+  padding: 28px 45px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
   .aabout-img_text {
@@ -3474,7 +3477,7 @@ li.header--social a:hover i {
 }
 .aabout-img_text-title span {
   display: block;
-  font-size: clamp(40px, 3.4vw, 60px);
+  font-size: clamp(30px, 2.8vw, 42px);
   line-height: 1.05;
   overflow-wrap: break-word;
 }
@@ -6287,6 +6290,35 @@ div.choose--afeature__icon i {
   border-radius: 10px;
 }
 
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  width: auto;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: transparent;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.05);
+}
+
+.whatsapp-float img {
+  height: 100%;
+  width: auto;
+}
+@media (max-width: 767px) {
+  .whatsapp-float {
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+
 .basic-pagination ul li a:hover, .basic-pagination ul li span.current {
   background: #ff6600;
   color: #ffffff;
@@ -7863,27 +7895,44 @@ footer {
    ============================== */
 .whatsapp-float {
   position: fixed;
-  width: 58px;
-  height: 58px;
-  bottom: 100px;
+  width: auto;
+  height: 140px;
+  bottom: 115px; /* acima do botão scroll (50px bottom + 46px altura + 19px espaço) */
   right: 25px;
-  background-color: #25d366;
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 28px;
-  box-shadow: 2px 2px 8px rgba(0,0,0,.25);
+  background-color: transparent;
   z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   text-decoration: none;
-  transition: all .3s ease;
+  transition: transform .3s ease;
+}
+.whatsapp-float img {
+  height: 100%;
+  width: auto;
+  display: block;
 }
 .whatsapp-float:hover {
-  background-color: #128c7e;
-  color: #fff;
-  transform: scale(1.1);
+  transform: scale(1.06);
+}
+@media (max-width: 1199px) {
+  .whatsapp-float {
+    height: 115px;
+    bottom: 110px;
+    right: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .whatsapp-float {
+    height: 90px;
+    bottom: 100px;
+    right: 12px;
+  }
+}
+@media (max-width: 479px) {
+  .whatsapp-float {
+    height: 72px;
+    bottom: 90px;
+    right: 8px;
+  }
 }
 
 /* ==============================
