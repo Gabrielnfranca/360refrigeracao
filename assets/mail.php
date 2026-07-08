@@ -1,51 +1,71 @@
 <?php
 
-    // Only process POST reqeusts.
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Get the form fields and remove MORALspace.
-        $name = strip_tags(trim($_POST["name"]));
-				$name = str_replace(array("\r","\n"),array(" "," "),$name);
-        $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-        $message = trim($_POST["message"]);
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    http_response_code(403);
+    echo "Requisicao invalida.";
+    exit;
+}
 
-        // Check that data was sent to the mailer.
-        if ( empty($name) OR empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            // Set a 400 (bad request) response code and exit.
-            http_response_code(400);
-            echo "Please complete the form and try again.";
-            exit;
-        }
+$recipient = "roberto@360refrigeracao.com.br";
+$formType  = isset($_POST["form_type"]) ? trim($_POST["form_type"]) : "contact";
 
-        // Set the recipient email address.
-        // FIXME: Update this to your desired email address.
-        $recipient = "mdsalim400@gmail.com";
+/* ===================== NEWSLETTER ===================== */
+if ($formType === "newsletter") {
+    $newsletterEmail = isset($_POST["newsletter_email"]) ? filter_var(trim($_POST["newsletter_email"]), FILTER_SANITIZE_EMAIL) : "";
 
-        // Set the email subject.
-        $subject = "New contact from $name";
-
-        // Build the email content.
-        $email_content = "Name: $name\n";
-        $email_content .= "Email: $email\n\n";
-        $email_content .= "Message:\n$message\n";
-
-        // Build the email headers.
-        $email_headers = "From: $name <$email>";
-
-        // Send the email.
-        if (mail($recipient, $subject, $email_content, $email_headers)) {
-            // Set a 200 (okay) response code.
-            http_response_code(200);
-            echo "Thank You! Your message has been sent.";
-        } else {
-            // Set a 500 (internal server error) response code.
-            http_response_code(500);
-            echo "Oops! Something went wrong and we couldn't send your message.";
-        }
-
-    } else {
-        // Not a POST request, set a 403 (forbidden) response code.
-        http_response_code(403);
-        echo "There was a problem with your submission, please try again.";
+    if (!filter_var($newsletterEmail, FILTER_VALIDATE_EMAIL)) {
+        http_response_code(400);
+        echo "Informe um e-mail valido.";
+        exit;
     }
+
+    $subject = "Nova inscricao na Newsletter - 360 Refrigeracao";
+    $emailContent = "Novo e-mail cadastrado na newsletter:\n\n";
+    $emailContent .= "E-mail: " . $newsletterEmail . "\n";
+
+    $emailHeaders  = "MIME-Version: 1.0\r\n";
+    $emailHeaders .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $emailHeaders .= "From: 360 Refrigeracao <" . $recipient . ">\r\n";
+    $emailHeaders .= "Reply-To: " . $newsletterEmail . "\r\n";
+
+    if (mail($recipient, $subject, $emailContent, $emailHeaders)) {
+        http_response_code(200);
+        echo "Inscricao enviada com sucesso.";
+    } else {
+        http_response_code(500);
+        echo "Nao foi possivel enviar. Tente novamente.";
+    }
+
+    exit;
+}
+
+$name    = isset($_POST["name"])    ? strip_tags(trim($_POST["name"]))    : "";
+$name    = str_replace(array("\r", "\n"), array(" ", " "), $name);
+$email   = isset($_POST["email"])   ? filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL) : "";
+$message = isset($_POST["message"]) ? trim($_POST["message"]) : "";
+
+if (empty($name) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    http_response_code(400);
+    echo "Preencha todos os campos corretamente.";
+    exit;
+}
+
+$subject      = "Novo contato do site - " . $name;
+$emailContent = "Nome: " . $name . "\n";
+$emailContent .= "E-mail: " . $email . "\n\n";
+$emailContent .= "Mensagem:\n" . $message . "\n";
+
+$emailHeaders  = "MIME-Version: 1.0\r\n";
+$emailHeaders .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$emailHeaders .= "From: " . $name . " <" . $email . ">\r\n";
+$emailHeaders .= "Reply-To: " . $email . "\r\n";
+
+if (mail($recipient, $subject, $emailContent, $emailHeaders)) {
+    http_response_code(200);
+    echo "Mensagem enviada com sucesso.";
+} else {
+    http_response_code(500);
+    echo "Erro ao enviar mensagem.";
+}
 
 ?>

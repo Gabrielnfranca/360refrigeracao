@@ -435,7 +435,7 @@ $('.venobox').venobox();
 		// direction: 'vertical',
 		loop: true,
         autoplay: {
-				delay: 5000,
+				delay: 2200,
 			},
 	  
 		// If we need pagination
@@ -469,16 +469,36 @@ $('.venobox').venobox();
 	  });
 	}
 
+	function abrirWhatsappComFallback(texto) {
+		var telefone = '5544991796414';
+		var mensagemCodificada = encodeURIComponent(texto);
+		var urlApi = 'https://api.whatsapp.com/send?phone=' + telefone + '&text=' + mensagemCodificada;
+		var urlFallback = 'https://wa.me/' + telefone + '?text=' + mensagemCodificada;
+		var isOpera = navigator.userAgent.indexOf(' OPR/') > -1 || navigator.userAgent.indexOf('Opera') > -1;
+		var urlPrincipal = isOpera ? urlFallback : urlApi;
+
+		try {
+			window.location.href = urlPrincipal;
+		} catch (error) {
+			window.location.href = urlFallback;
+		}
+	}
+
 	// formulario de orcamento para WhatsApp
 	var orcamentoForm = document.getElementById('orcamento-whatsapp-form');
 	if (orcamentoForm) {
 		orcamentoForm.addEventListener('submit', function (event) {
 			event.preventDefault();
 
-			var nome = (document.getElementById('orcamento-nome')?.value || '').trim();
-			var telefone = (document.getElementById('orcamento-telefone')?.value || '').trim();
-			var servico = (document.getElementById('orcamento-servico')?.value || '').trim();
-			var mensagem = (document.getElementById('orcamento-mensagem')?.value || '').trim();
+			var nomeInput = document.getElementById('orcamento-nome');
+			var telefoneInput = document.getElementById('orcamento-telefone');
+			var servicoInput = document.getElementById('orcamento-servico');
+			var mensagemInput = document.getElementById('orcamento-mensagem');
+
+			var nome = nomeInput && nomeInput.value ? nomeInput.value.trim() : '';
+			var telefone = telefoneInput && telefoneInput.value ? telefoneInput.value.trim() : '';
+			var servico = servicoInput && servicoInput.value ? servicoInput.value.trim() : '';
+			var mensagem = mensagemInput && mensagemInput.value ? mensagemInput.value.trim() : '';
 
 			if (!nome || !telefone || !servico) {
 				return;
@@ -492,8 +512,7 @@ $('.venobox').venobox();
 				'Mensagem: ' + (mensagem || 'Nao informada')
 			].join('\n');
 
-			var whatsappUrl = 'https://wa.me/5544991796414?text=' + encodeURIComponent(textoWhatsapp);
-			window.open(whatsappUrl, '_blank');
+			abrirWhatsappComFallback(textoWhatsapp);
 		});
 	}
 
@@ -507,9 +526,9 @@ $('.venobox').venobox();
 			var emailContatoInput = contatoForm.querySelector('input[name="email"]');
 			var mensagemContatoInput = contatoForm.querySelector('textarea[name="message"]');
 
-			var nomeContato = nomeContatoInput ? nomeContatoInput.value.trim() : '';
-			var emailContato = emailContatoInput ? emailContatoInput.value.trim() : '';
-			var mensagemContato = mensagemContatoInput ? mensagemContatoInput.value.trim() : '';
+			var nomeContato = nomeContatoInput && nomeContatoInput.value ? nomeContatoInput.value.trim() : '';
+			var emailContato = emailContatoInput && emailContatoInput.value ? emailContatoInput.value.trim() : '';
+			var mensagemContato = mensagemContatoInput && mensagemContatoInput.value ? mensagemContatoInput.value.trim() : '';
 
 			if (!nomeContato || !emailContato || !mensagemContato) {
 				return;
@@ -522,9 +541,50 @@ $('.venobox').venobox();
 				'Mensagem: ' + mensagemContato
 			].join('\n');
 
-			var contatoWhatsappUrl = 'https://wa.me/5544991796414?text=' + encodeURIComponent(textoContatoWhatsapp);
-			window.open(contatoWhatsappUrl, '_blank');
+			abrirWhatsappComFallback(textoContatoWhatsapp);
 		});
 	}
 
 })(jQuery);
+
+// Newsletter: funcao global chamada pelo onsubmit do form
+function enviarNewsletter(form, event) {
+	event.preventDefault();
+
+	var emailInput  = form.querySelector('input[name="newsletter_email"]');
+	var responseEl  = form.querySelector('.newsletter-response');
+	var btn         = form.querySelector('button[type="submit"]');
+	var originalTxt = btn ? btn.textContent : 'Inscrever-se';
+
+	if (!emailInput || !emailInput.value.trim()) { return false; }
+
+	if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
+
+	var formData = new FormData(form);
+
+	fetch(form.getAttribute('action'), { method: 'POST', body: formData })
+		.then(function(res) {
+			return res.text().then(function(txt) { return { ok: res.ok, txt: txt }; });
+		})
+		.then(function(result) {
+			if (btn) { btn.disabled = false; btn.textContent = originalTxt; }
+			if (result.ok) {
+				if (emailInput) { emailInput.value = ''; }
+				alert('Inscrição enviada com sucesso! Em breve você receberá novidades da 360º Refrigeração.');
+			} else {
+				if (responseEl) {
+					responseEl.className = 'newsletter-response error';
+					responseEl.textContent = result.txt || 'Não foi possível enviar. Tente novamente.';
+				}
+			}
+		})
+		.catch(function() {
+			if (btn) { btn.disabled = false; btn.textContent = originalTxt; }
+			if (responseEl) {
+				responseEl.className = 'newsletter-response error';
+				responseEl.textContent = 'Erro de conexão. Tente novamente.';
+			}
+		});
+
+	return false;
+}
